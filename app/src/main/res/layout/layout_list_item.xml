@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF7DA">
+
+    <ImageView
+        android:id="@+id/imageview_visual"
+        android:layout_width="88dp"
+        android:layout_height="88dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageview_visual"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textview_name"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/textview_address"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            tools:text="address" />
+
+        <TextView
+            android:id="@+id/textview_hours"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            tools:text="hours" />
+
+        <TextView
+            android:id="@+id/textview_phone_number"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            tools:text="phone number" />
+    </LinearLayout>
+
+</RelativeLayout>
