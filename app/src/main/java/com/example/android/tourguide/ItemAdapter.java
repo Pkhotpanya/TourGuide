@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by pkhotpanya on 6/20/17.
  */
@@ -33,60 +36,72 @@ public class ItemAdapter extends ArrayAdapter<Item> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
+        ViewHolder holder;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.layout_list_item, parent, false);
+            holder = new ViewHolder(listItemView);
+            listItemView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
         Item currentItem = (Item) getItem(position);
 
-        ImageView imageView = (ImageView) listItemView.findViewById(R.id.imageview_visual);
-
         // Check if an image is provided for this word or not
         if (currentItem.hasImage()) {
             // If an image is available, display the provided image based on the resource ID
-            imageView.setImageResource(currentItem.getImageResourceId());
+            holder.image.setImageResource(currentItem.getImageResourceId());
             // Make sure the view is visible
-            imageView.setVisibility(View.VISIBLE);
+            holder.image.setVisibility(View.VISIBLE);
         } else {
             // Otherwise hide the ImageView (set visibility to GONE)
-            imageView.setVisibility(View.GONE);
+            holder.image.setVisibility(View.GONE);
         }
 
         // Find the TextView in the list_view.xml layout with the ID version_name
-        TextView nameTextView = (TextView) listItemView.findViewById(R.id.textview_name);
-        nameTextView.setText(currentItem.getName());
+        holder.name.setText(currentItem.getName());
 
         // Find the TextView in the list_view.xml layout with the ID version_number
-        TextView addressTextView = (TextView) listItemView.findViewById(R.id.textview_address);
         if (currentItem.hasAddress()){
-            addressTextView.setText(currentItem.getAdress());
-            addressTextView.setVisibility(View.VISIBLE);
+            holder.address.setText(currentItem.getAdress());
+            holder.address.setVisibility(View.VISIBLE);
         } else {
-            addressTextView.setVisibility(View.GONE);
+            holder.address.setVisibility(View.GONE);
         }
 
         // Find the TextView in the list_view.xml layout with the ID version_name
-        TextView hoursTextView = (TextView) listItemView.findViewById(R.id.textview_hours);
         if (currentItem.hasHours()){
-            hoursTextView.setText(currentItem.getHours());
-            hoursTextView.setVisibility(View.VISIBLE);
+            holder.hours.setText(currentItem.getHours());
+            holder.hours.setVisibility(View.VISIBLE);
         } else {
-            hoursTextView.setVisibility(View.GONE);
+            holder.hours.setVisibility(View.GONE);
         }
 
         // Find the TextView in the list_view.xml layout with the ID version_number
-        TextView phoneTextView = (TextView) listItemView.findViewById(R.id.textview_phone_number);
         if (currentItem.hasPhoneNumber()){
-            phoneTextView.setText(currentItem.getPhoneNumber());
-            phoneTextView.setVisibility(View.VISIBLE);
+            holder.phoneNumber.setText(currentItem.getPhoneNumber());
+            holder.phoneNumber.setVisibility(View.VISIBLE);
         } else {
-            phoneTextView.setVisibility(View.GONE);
+            holder.phoneNumber.setVisibility(View.GONE);
         }
 
         // Return the whole list item layout
         // so that it can be shown in the ListView
         return listItemView;
+    }
+
+    // somewhere else in your class definition
+    static class ViewHolder {
+        @BindView(R.id.imageview_visual) ImageView image;
+        @BindView(R.id.textview_name) TextView name;
+        @BindView(R.id.textview_address) TextView address;
+        @BindView(R.id.textview_hours) TextView hours;
+        @BindView(R.id.textview_phone_number) TextView phoneNumber;
+
+        public ViewHolder(View view){
+            ButterKnife.bind(this, view);
+        }
     }
 
 }

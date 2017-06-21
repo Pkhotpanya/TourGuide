@@ -18,14 +18,15 @@ public class CategoryAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            return new AttractionFragment();
-        } else if (position == 1){
-            return new RestaurantFragment();
-        } else if (position == 2){
-            return new PlacesFragment();
-        } else {
-            return new EventsFragment();
+        switch (position) {
+            case 0:
+                return new AttractionFragment();
+            case 1:
+                return new RestaurantFragment();
+            case 2:
+                return new PlacesFragment();
+            default:
+                return new EventsFragment();
         }
     }
 
