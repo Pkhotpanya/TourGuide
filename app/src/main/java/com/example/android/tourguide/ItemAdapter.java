@@ -1,6 +1,8 @@
 package com.example.android.tourguide;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -19,12 +21,11 @@ import java.util.ArrayList;
 
 public class ItemAdapter extends ArrayAdapter<Item> {
 
+    private final Context mContext;
+
     public ItemAdapter(Activity context, ArrayList<Item> items) {
-        // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
-        // the second argument is used when the ArrayAdapter is populating a single TextView.
-        // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
-        // going to use this second argument, so it can be any value. Here, we used 0.
         super(context, 0, items);
+        mContext = context;
     }
 
     @NonNull
@@ -37,7 +38,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                     R.layout.layout_list_item, parent, false);
         }
 
-        Item currentItem = getItem(position);
+        Item currentItem = (Item) getItem(position);
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.imageview_visual);
 
@@ -58,15 +59,30 @@ public class ItemAdapter extends ArrayAdapter<Item> {
 
         // Find the TextView in the list_view.xml layout with the ID version_number
         TextView addressTextView = (TextView) listItemView.findViewById(R.id.textview_address);
-        addressTextView.setText(currentItem.getAdress());
+        if (currentItem.hasAddress()){
+            addressTextView.setText(currentItem.getAdress());
+            addressTextView.setVisibility(View.VISIBLE);
+        } else {
+            addressTextView.setVisibility(View.GONE);
+        }
 
         // Find the TextView in the list_view.xml layout with the ID version_name
         TextView hoursTextView = (TextView) listItemView.findViewById(R.id.textview_hours);
-        hoursTextView.setText(currentItem.getHours());
+        if (currentItem.hasHours()){
+            hoursTextView.setText(currentItem.getHours());
+            hoursTextView.setVisibility(View.VISIBLE);
+        } else {
+            hoursTextView.setVisibility(View.GONE);
+        }
 
         // Find the TextView in the list_view.xml layout with the ID version_number
         TextView phoneTextView = (TextView) listItemView.findViewById(R.id.textview_phone_number);
-        phoneTextView.setText(currentItem.getAdress());
+        if (currentItem.hasPhoneNumber()){
+            phoneTextView.setText(currentItem.getPhoneNumber());
+            phoneTextView.setVisibility(View.VISIBLE);
+        } else {
+            phoneTextView.setVisibility(View.GONE);
+        }
 
         // Return the whole list item layout
         // so that it can be shown in the ListView

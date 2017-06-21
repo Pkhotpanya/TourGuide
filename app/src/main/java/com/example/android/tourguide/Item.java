@@ -28,6 +28,10 @@ public class Item {
     public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
     }
+    public boolean hasAddress() { return !mAdress.isEmpty();}
+    public boolean hasHours() { return !mHours.isEmpty();}
+    public boolean hasPhoneNumber() { return !mPhoneNumber.isEmpty();}
+
 
     public int getImageResourceId() {
         return mImageResourceId;
