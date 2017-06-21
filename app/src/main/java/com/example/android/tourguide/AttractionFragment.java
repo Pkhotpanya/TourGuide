@@ -23,13 +23,13 @@ public class AttractionFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.layout_list, container, false);
 
         final ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item(R.drawable.book_of_mormon, "The Book of Mormon", "San Diego Civic Theater", "July 25-30, 2017", "(619) 564-3000"));
-        items.add(new Item(R.drawable.les_miserables, "Les Miserables", "San Diego Civic Theater", "May 29 – June 3, 2018", "619) 564-3000"));
-        items.add(new Item(R.drawable.wwe_smackdown, "WWE Smackdown Live", "Valley View Casino Center", "June 27, 2017", "(619) 224-417"));
-        items.add(new Item(R.drawable.the_game, "The Game", "The Observatory North Park", "Jun 23, 2017", "(619) 239-8836"));
-        items.add(new Item(R.drawable.linkin_park, "Linkin Park and Machine Gun Kelly", "Mattress Firm Amphitheater", "Friday, October 20, 7:30 p.m", "619-671-3600"));
-        items.add(new Item(R.drawable.idena_menzel, "Idena Menzel", "Pechanga Resort and Casino", "Friday, September 1, 8 p.m", "951-693-1819"));
-        items.add(new Item(R.drawable.padres_petco_park, "Tigers at Padres", "Petco Park", "June 23", "tickets.com"));
+        items.add(new Item(R.drawable.book_of_mormon, getString(R.string.the_book_of_mormon), getString(R.string.san_diego_civic_theater), getString(R.string.july_25_30_2017), getString(R.string.mormon_phonenumber)));
+        items.add(new Item(R.drawable.les_miserables, getString(R.string.les_miserables), getString(R.string.san_diego_civic_theater), getString(R.string.miserables_dates), getString(R.string.miserables_phonenumber)));
+        items.add(new Item(R.drawable.wwe_smackdown, getString(R.string.wwe_smackdown_live), getString(R.string.valley_view_casino_center), getString(R.string.wwe_dates), getString(R.string.wwe_number)));
+        items.add(new Item(R.drawable.the_game, getString(R.string.the_game), getString(R.string.the_observatory_north_park), getString(R.string.the_game_date), getString(R.string.the_game_number)));
+        items.add(new Item(R.drawable.linkin_park, getString(R.string.linkin_park_mgk), getString(R.string.mattress_firm_amphitheater), getString(R.string.linkin_park_date), getString(R.string.linkin_park_number)));
+        items.add(new Item(R.drawable.idena_menzel, getString(R.string.idena_menzel), getString(R.string.pechanga), getString(R.string.menzel_date), getString(R.string.menzel_number)));
+        items.add(new Item(R.drawable.padres_petco_park, getString(R.string.tigers_at_padres), getString(R.string.petco_park), getString(R.string.tigers_date), getString(R.string.tigers_game_website)));
 
         ItemAdapter adapter = new ItemAdapter(getActivity(), items);
 

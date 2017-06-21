@@ -20,14 +20,14 @@ public class PlacesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.layout_list, container, false);
 
         final ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item(R.drawable.balboa_park, "Balboa Park", "","24 Hours", "(619) 239-0512"));
-        items.add(new Item(R.drawable.sea_world, "SeaWorld", "", "10am to 10pm", "(619) 222-4732"));
-        items.add(new Item(R.drawable.san_diego_zoo, "Zoo", "Zoo Dr", "9am to 8pm", "619-231-1515"));
-        items.add(new Item(R.drawable.la_jolla_cove, "La Jolla Cove", "", "", ""));
-        items.add(new Item(R.drawable.seaport_village, "Seaport Village", "Harbor Dr", "10am to 10pm", "(619) 235-4014"));
-        items.add(new Item(R.drawable.old_town, "Old Town", "Wallace St", "10am to 4pm", "(619) 220-5422"));
-        items.add(new Item(R.drawable.belmont_park, "Belmont Park", "", "11am to 11pm", "(858) 488-1549"));
-        items.add(new Item(R.drawable.birch_aquarium, "Birch Aquarium", "Expedition Way", "9am to 5pm", "(858) 534-3474"));
+        items.add(new Item(R.drawable.balboa_park, getString(R.string.balboa_park), "",getString(R.string.hours_24), getString(R.string.balboa_numbers)));
+        items.add(new Item(R.drawable.sea_world, getString(R.string.seaworld), "", getString(R.string.seaworld_hours), getString(R.string.seaworld_number)));
+        items.add(new Item(R.drawable.san_diego_zoo, getString(R.string.zoo), getString(R.string.zoo_dr), getString(R.string.zoo_hours), getString(R.string.zoo_number)));
+        items.add(new Item(R.drawable.la_jolla_cove, getString(R.string.la_jolla_cove), "", "", ""));
+        items.add(new Item(R.drawable.seaport_village, getString(R.string.seaport_village), getString(R.string.harbor_dr), getString(R.string.seaport_hours), getString(R.string.seaport_number)));
+        items.add(new Item(R.drawable.old_town, getString(R.string.old_town), getString(R.string.wallace_st), getString(R.string.old_town_hours), getString(R.string.old_town_numbers)));
+        items.add(new Item(R.drawable.belmont_park, getString(R.string.belmont_park), "", getString(R.string.belmont_hours), getString(R.string.belmont_number)));
+        items.add(new Item(R.drawable.birch_aquarium, getString(R.string.birch_aquarium), getString(R.string.expedition_way), getString(R.string.birch_hours), getString(R.string.birch_number)));
 
         ItemAdapter adapter = new ItemAdapter(getActivity(), items);
 

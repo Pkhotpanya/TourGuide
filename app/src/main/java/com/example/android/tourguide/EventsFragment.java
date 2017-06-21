@@ -20,13 +20,13 @@ public class EventsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.layout_list, container, false);
 
         final ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item(R.drawable.balboa_after_dark, "Balboa Park After Dark", "The Fleet Science Center", "Friday, Jun 23, 2017 6:00 pm to 8:00 pm", "(619) 238-1233"));
-        items.add(new Item(R.drawable.tron_dance_party, "Tron Dance Party", "Blonde Bar", "Friday, June 30, 9 p.m", "blondebarsd@gmail.com"));
-        items.add(new Item(R.drawable.san_diego_pride_weekend, "San Diego Pride Weekend", "Hillcrest", "July 15-16th", ""));
-        items.add(new Item(R.drawable.taste_of, "Taste of", "Liberty Station", "June 21, 5-9 p.m", ""));
-        items.add(new Item(R.drawable.berry_good_night, "Berry Good Night", "La Jolla oceanview estate", "July 15", "info@berrygoodfood.org"));
-        items.add(new Item(R.drawable.san_diego_county_fair, "San Diego County Fair", "Del Mar", "June 2 - July 4", "(858)755-1161"));
-        items.add(new Item(R.drawable.music_in_the_gardens, "Music in the Gardens", "Escondido", "June 22", ""));
+        items.add(new Item(R.drawable.balboa_after_dark, getString(R.string.balboa_after_dark), getString(R.string.fleet_science_center), getString(R.string.after_dark_date), getString(R.string.fleet_number)));
+        items.add(new Item(R.drawable.tron_dance_party, getString(R.string.tron_dance_party), getString(R.string.blonde_bar), getString(R.string.tron_date), getString(R.string.blonde_number)));
+        items.add(new Item(R.drawable.san_diego_pride_weekend, getString(R.string.san_diego_pride_weekend), getString(R.string.hillcrest), getString(R.string.pride_date), ""));
+        items.add(new Item(R.drawable.taste_of, getString(R.string.taste_of), getString(R.string.liberty_station), getString(R.string.taste_date), ""));
+        items.add(new Item(R.drawable.berry_good_night, getString(R.string.berry_good_night), getString(R.string.la_jolla_oceanview), getString(R.string.berry_date), getString(R.string.berry_email)));
+        items.add(new Item(R.drawable.san_diego_county_fair, getString(R.string.san_diego_county_fair), getString(R.string.del_mar), getString(R.string.fair_date), getString(R.string.fair_number)));
+        items.add(new Item(R.drawable.music_in_the_gardens, getString(R.string.music_in_the_gardens), getString(R.string.escondido), getString(R.string.music_garden_date), ""));
 
         ItemAdapter adapter = new ItemAdapter(getActivity(), items);
 
